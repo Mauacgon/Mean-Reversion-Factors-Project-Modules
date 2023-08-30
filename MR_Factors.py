@@ -4,8 +4,8 @@ import MeanReversionFactorsCalc
 import pandas as pd
 import os
 
-dateString = '20230424'
-MRFactor = '0.2347'
+dateString = '20230829'
+MRFactor = '0.4323'
 
 
 def SloeAligneDataProcess(dateString,MRFactor):
@@ -53,7 +53,9 @@ months.sort()
 
 meanReversionFactors = MeanReversionFactorsCalc.getMeanReversionFactorArray(months, AligneData, MOExtrinsic)
 
-pd.DataFrame({'MeanRevertFactors': meanReversionFactors}).to_csv('C:/Users/D110148/OneDrive - pzem/Main/Risk Management OTS/Mean Reversion Aligne/MeanReversionFactors.csv')
+pd.DataFrame({'MeanRevertFactors': meanReversionFactors}).to_csv('C:/Users/D110148/OneDrive - pzem/Main/Risk Management OTS/Mean Reversion Aligne/MeanReversionFactors ' + dateString + '.csv')
+
+MeanReversionFactorsCalc.addAligneData(months, AligneData).to_csv('C:/Users/D110148/OneDrive - pzem/Main/Risk Management OTS/Mean Reversion Aligne/AligneSummary' + dateString + '.csv')
 
 print(os.getcwd())
 
